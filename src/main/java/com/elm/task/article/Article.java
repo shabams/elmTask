@@ -2,10 +2,7 @@ package com.elm.task.article;
 
 
 import com.elm.task.user.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.validator.constraints.Length;
 
@@ -43,18 +40,19 @@ public class Article {
     private String body;
 
 
+
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User author;
 
 
-    @NotNull(message = "Creation Date must not be empty")
+//    @NotNull(message = "Creation Date must not be empty")
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     @Column(name = "created_at")
     private Date createdAt;
 
-    @NotNull
+//    @NotNull
     @Lob
     @Column(name = "image", columnDefinition = "BLOB") // for size we can try length = 500000
     private byte[] image;

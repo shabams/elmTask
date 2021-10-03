@@ -39,9 +39,9 @@ public class ArticleController {
     @PreAuthorize("hasAnyAuthority('USERS')")
     @PostMapping
     public Article createArticle(@RequestBody @Valid Article article){
-        if (article.getImage().length>=500*1024) {
-            throw new ValidationException("image size should be less than 500kb");
-        }
+//        if (article.getImage().length>=500*1024) {
+//            throw new ValidationException("image size should be less than 500kb");
+//        }
 
         return  articleService.save(article);
     }
